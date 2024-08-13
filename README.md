@@ -1,81 +1,78 @@
-# Unix Advanced Programming Assignments
+# Unix Advanced Programming 과제
 
-This repository contains assignments HW2 through HW5, focusing on multi-threaded and multi-user programming in C. The assignments cover thread management, shared memory, synchronization using semaphores and mutexes, and real-time communication between processes.
+이 저장소에는 멀티스레드 및 멀티유저 프로그래밍을 중심으로 한 과제 HW2부터 HW5까지가 포함되어 있습니다. 과제는 스레드 관리, 공유 메모리, 세마포어와 뮤텍스를 사용한 동기화, 프로세스 간 실시간 통신 등을 다룹니다.
 
-## HW2: Process and Thread Management
+## HW2: 프로세스 및 스레드 관리
 
-### Files
-- `read.c`: Contains code for reading data from shared memory or files.
-- `write.c`: Contains code for writing data to shared memory or files.
+### 파일
+- `read.c`: 공유 메모리 또는 파일에서 데이터를 읽는 코드가 포함되어 있습니다.
+- `write.c`: 공유 메모리 또는 파일에 데이터를 쓰는 코드가 포함되어 있습니다.
 
-### Structure and Workflow
-HW2 demonstrates how to create and manage threads and processes in C. It includes:
-- **Thread Creation**: How to create and manage multiple threads.
-- **Process Creation**: How to create and manage child processes using `fork()`.
+### 구조 및 워크플로우
+HW2는 C에서 스레드와 프로세스를 생성하고 관리하는 방법을 보여줍니다. 포함된 내용은:
+- **스레드 생성**: 여러 스레드를 생성하고 관리하는 방법.
+- **프로세스 생성**: `fork()`를 사용하여 자식 프로세스를 생성하고 관리하는 방법.
 
-### Usage
-To compile and run HW2:
+### 사용 방법
+HW2를 컴파일하고 실행하려면:
 
 ```bash
 gcc -o hw2 202155532.c read.c write.c -lpthread
 ./hw2
 ```
 
-## HW3: Thread Synchronization and Shared Memory
+## HW3: 스레드 동기화 및 공유 메모리
 
-### Files
-- `chatHeader.h`: Header file with shared data structure and function prototypes.
-- `chatThreadSync.c`: Implements a chat system using threads and shared memory with mutexes for synchronization.
+### 파일
+- `chatHeader.h`: 공유 데이터 구조체와 함수 프로토타입을 포함한 헤더 파일입니다.
+- `chatThreadSync.c`: 뮤텍스를 사용하여 스레드와 공유 메모리를 통해 채팅 시스템을 구현합니다.
 
-### Structure and Workflow
-HW3 builds upon HW2 by adding thread synchronization and shared memory. It includes:
+### 구조 및 워크플로우
+HW3는 HW2를 기반으로 스레드 동기화와 공유 메모리를 추가합니다. 포함된 내용은:
+- **공유 메모리**: 프로세스 간 통신을 허용하는 공유 메모리 사용.
+- **뮤텍스**: 공유 자원에 대한 접근을 동기화하기 위해 뮤텍스 사용.
+- **스레드 관리**: 실시간 채팅 기능을 처리하기 위해 여러 스레드를 관리합니다.
 
-- **Shared Memory**: Using shared memory to allow communication between processes.
-- **Mutexes**: Using mutexes to synchronize access to shared resources.
-- **Thread Management**: Managing multiple threads to handle real-time chat functionality.
-
-### Usage
-To compile and run HW3:
+### 사용 방법
+HW3를 컴파일하고 실행하려면:
 
 ```bash
 gcc -o hw3 chatThreadSync.c -lpthread -lcurses
 ./hw3 <UserID>
 ```
 
-## HW4: Semaphore Synchronization and Signal Handling
+## HW4: 세마포어 동기화 및 신호 처리
 
-### Files
-- `main.c`: Implements a chat system with semaphore synchronization and signal handling.
+### 파일
+- `main.c`: 세마포어 동기화 및 신호 처리를 포함한 채팅 시스템 구현.
 
-### Structure and Workflow
-HW4 extends HW3 by incorporating semaphore synchronization and signal handling:
-
-- **Shared Memory**: Using semaphores to manage access to shared resources.
-- **Mutexes**: Handling termination signals to clean up resources and exit gracefully.
-- **Thread Management**: Creating and managing threads with improved synchronization.
+### 구조 및 워크플로우
+HW4는 HW3에 세마포어 동기화 및 신호 처리를 추가합니다. 포함된 내용은:
+- **공유 메모리**: 세마포어를 사용하여 공유 자원에 대한 접근을 관리합니다.
+- **뮤텍스**: 종료 신호를 처리하여 자원을 정리하고 정상적으로 종료합니다.
+- **스레드 관리**: 개선된 동기화와 함께 스레드를 생성하고 관리합니다.
 
 ### Usage
-To compile and run HW4:
+HW4를 컴파일하고 실행하려면:
 
 ```bash
 gcc -o hw4 main.c -lpthread -lcurses -lrt
 ./hw4 <UserID>
 ```
 
-## HW5: Concurrent Deposit and Withdrawal with Synchronization
+## HW5: 동시 예금 및 출금 동기화
 
-### Files
-- `202155526-kim-minkyoung.c`: Contains a simulation of concurrent deposit and withdrawal operations using threads, mutexes, and condition variables.
+### 파일
+- `202155526-kim-minkyoung.c`: 스레드, 뮤텍스, 조건 변수를 사용하여 동시 예금 및 출금 작업을 시뮬레이션합니다.
 
-### Structure and Workflow
-HW5 focuses on synchronization in concurrent deposit and withdrawal scenarios:
-
-- **Concurrency**: Managing concurrent deposit and withdrawal operations.
-- **Mutexes and Condition Variables**: Using mutexes to protect shared resources and condition variables to signal state changes.
-- **Random Operations**: Simulating random deposit and withdrawal amounts.
+### 구조 및 워크플로우
+HW5는 동시 예금 및 출금 시나리오에서 동기화에 중점을 둡니다. 포함된 내용은:
+- **동시성**: 동시 예금 및 출금 작업 관리.
+- **뮤텍스 및 조건 변수**: 공유 자원을 보호하기 위해 뮤텍스 사용 및 상태 변화를 신호하기 위한 조건 변수 사용.
+- **무작위 작업**: 무작위 예금 및 출금 금액 시뮬레이션.
 
 ### Usage
-To compile and run HW5:
+HW5를 컴파일하고 실행하려면:
 
 ```bash
 gcc -o hw5 202155526-kim-minkyoung.c -lpthread
