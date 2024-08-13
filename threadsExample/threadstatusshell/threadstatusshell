@@ -1,0 +1,4 @@
+#!/bin/bash
+
+while [ 1 ]; do ps -aux|grep threadlock|grep -v grep ;sleep 1; done
+
